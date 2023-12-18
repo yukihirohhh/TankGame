@@ -24,6 +24,15 @@
       <UniqueIdentifier>{47a6a3f5-8cfd-436b-8d58-beccd108f3f3}</UniqueIdentifier>
       <Extensions>hlsl</Extensions>
     </Filter>
+    <Filter Include="SCENE">
+      <UniqueIdentifier>{9d181bec-5175-4809-973d-db40c5d4a196}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SCENE\TITLE">
+      <UniqueIdentifier>{67e1d491-a9ee-478a-96be-1e9801e1de26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SCENE\PLAY">
+      <UniqueIdentifier>{239e6322-6615-42f6-8e49-8fcf82e49803}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\BoxCollider.cpp">
@@ -80,7 +89,6 @@
     <ClCompile Include="Engine\Transform.cpp">
       <Filter>01Engine\GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="Engine\Audio.cpp">
       <Filter>01Engine\ResourceManager</Filter>
     </ClCompile>
@@ -95,6 +103,18 @@
     </ClCompile>
     <ClCompile Include="Engine\VFX.cpp">
       <Filter>01Engine\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>SCENE\TITLE</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>SCENE\PLAY</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayScene.cpp">
+      <Filter>SCENE\PLAY</Filter>
+    </ClCompile>
+    <ClCompile Include="Tank.cpp">
+      <Filter>SCENE\PLAY</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,7 +172,6 @@
     <ClInclude Include="Engine\Transform.h">
       <Filter>01Engine\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="TestScene.h" />
     <ClInclude Include="Engine\Audio.h">
       <Filter>01Engine\ResourceManager</Filter>
     </ClInclude>
@@ -167,6 +186,18 @@
     </ClInclude>
     <ClInclude Include="Engine\VFX.h">
       <Filter>01Engine\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>SCENE\TITLE</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>SCENE\PLAY</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayScene.h">
+      <Filter>SCENE\PLAY</Filter>
+    </ClInclude>
+    <ClInclude Include="Tank.h">
+      <Filter>SCENE\PLAY</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
