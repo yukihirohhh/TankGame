@@ -1,5 +1,7 @@
 #pragma once
 #include "Engine/GameObject.h"
+#include "Tank.h"
+
 class Tank :
     public GameObject
 {

@@ -3,6 +3,7 @@
 #include "Engine/Model.h"
 #include "Engine/Input.h"
 #include "Engine/Debug.h"
+#include "TankHead.h"
 
 Tank::Tank(GameObject* parent)
 	:GameObject(parent, "Tank"), hModel_(-1), speed_(0.1), front_ ({0,0,1,0}) 
@@ -18,6 +19,8 @@ void Tank::Initialize()
 {
 	hModel_ = Model::Load("TankBody.fbx");
 	assert(hModel_ >= 0);
+
+	Instantiate<TankHead>(this);
 }
 
 void Tank::Update()
