@@ -6,7 +6,7 @@
 #include "TankHead.h"
 
 Tank::Tank(GameObject* parent)
-	:GameObject(parent, "Tank"), hModel_(-1), speed_(0.1), front_ ({0,0,1,0}) 
+	:GameObject(parent, "Tank"), hModel_(-1), speed_(0.05), front_ ({0,0,1,0}) 
 {
 
 }
@@ -75,7 +75,7 @@ void Tank::Update()
 
 	if (data.hit == true)
 	{
-		transform_.position_.y = - data.dist;
+		transform_.position_.y = - data.dist + 0.5f;
 	}
 }
 

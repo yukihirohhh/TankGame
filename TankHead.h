@@ -6,8 +6,7 @@ class TankHead :
 {
 private:
 	int hModel_; //TankHead‚Ìƒ‚ƒfƒ‹‚ğ“Ç‚Ş•Ï”
-	XMVECTOR front_;
-	float speed_;
+	
 public:
 	/// <summary>
 	/// 
