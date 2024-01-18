@@ -1,6 +1,5 @@
 #pragma once
 #include "Engine/GameObject.h"
-#include "Tank.h"
 
 class Tank :
     public GameObject
@@ -8,6 +7,7 @@ class Tank :
 	int hModel_;
 	XMVECTOR front_;
 	float speed_;
+	int camState_;
 public:
     //コンストラクタ
     Tank(GameObject* parent);
