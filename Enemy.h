@@ -1,20 +1,15 @@
 #pragma once
 #include "Engine/GameObject.h"
-
-class Text;
-class Tank;
-
-class PlayScene :
+class Enemy :
     public GameObject
 {
-	Text* pText;
-	const int ENEMY_NUM;
-	Tank* player;
+	int hModel_;
 public:
-	PlayScene(GameObject* parent);
+	//コンストラクタ
+	Enemy(GameObject* parent);
 
 	//デストラクタ
-	~PlayScene();
+	~Enemy();
 
 	//初期化
 	void Initialize() override;
@@ -27,5 +22,7 @@ public:
 
 	//開放
 	void Release() override;
+
+	void OnCollision(GameObject* pTarget) override;
 };
 
