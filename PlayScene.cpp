@@ -21,6 +21,11 @@ void PlayScene::Initialize()
 	Instantiate<Ground>(this);
 	Instantiate<Tank>(this);
 	//Instantiate<TankHead>(this);
+
+	for (int i = 0; i < 30; i++)
+	{
+		Instantiate<Enemy>(this);
+	}
 }
 
 void PlayScene::Update()
@@ -34,7 +39,6 @@ void PlayScene::Update()
 
 void PlayScene::Draw()
 {
-	pText->Draw(30, 30, "Yahoo!");
 }
 
 void PlayScene::Release()
