@@ -34,31 +34,18 @@ void Tank::Initialize()
 
 void Tank::Update()
 {
+	XMMATRIX rotY = XMMatrixIdentity(); //行列の１単位行列
+	XMVECTOR move{ 0,0,0,0 };
+	XMVECTOR rotVec{ 0,0,0,0 };
+	int dir = 0;
+
 	if (Input::IsKey(DIK_W))
 	{
-		//回転行列を求める
-		XMMATRIX rotY = XMMatrixRotationY(XMConvertToRadians(transform_.rotate_.y));
-		//ベクトルの回転結果を求める
-		XMVECTOR rotVec = XMVector3TransformCoord(front_, rotY);
-
-		XMVECTOR m;
-		m = speed_ * rotVec;
-		XMVECTOR pos = XMLoadFloat3(&(transform_.position_)); //XMVECTORに合わせる
-		pos = pos + m; //pos = pos + speed * front_
-		XMStoreFloat3(&(transform_.position_), pos);
+		dir = 1.0;
 	}
 	if (Input::IsKey(DIK_S))
 	{
-		//回転行列を求める
-		XMMATRIX rotY = XMMatrixRotationY(XMConvertToRadians(transform_.rotate_.y));
-		//ベクトルの回転結果を求める
-		XMVECTOR rotVec = XMVector3TransformCoord(front_, rotY);
-
-		XMVECTOR m;
-		m = speed_ * rotVec;
-		XMVECTOR pos = XMLoadFloat3(&(transform_.position_));
-		pos = pos - m;
-		XMStoreFloat3(&(transform_.position_), pos);
+		dir = -1.0;
 	}
 	if (Input::IsKey(DIK_A))
 	{
@@ -69,6 +56,17 @@ void Tank::Update()
 		transform_.rotate_.y += 1;
 	}
 	
+	//回転行列を求める
+	rotY = XMMatrixRotationY(XMConvertToRadians(transform_.rotate_.y));
+	//ベクトルの回転結果を求める
+	rotVec = XMVector3TransformCoord(front_, rotY);
+
+	move = speed_ * rotVec;
+	XMVECTOR pos = XMLoadFloat3(&(transform_.position_)); //XMVECTORに合わせる
+	pos = pos + dir * move; //pos = pos + speed * front_
+	XMStoreFloat3(&(transform_.position_), pos);
+
+
 
 	/*Debug::Log("angle = ");
 	Debug::Log(transform_.rotate_.y, true);*/
@@ -108,7 +106,7 @@ void Tank::Update()
 	case CAM_TYPE::TPS_NOROT_TYPE:
 	{
 		XMFLOAT3 camPos = transform_.position_;
-		camPos.y = transform_.position_.y + 20.0f;
+		camPos.y = transform_.position_.y + 15.0f;
 		camPos.z = transform_.position_.z - 10.0f;
 		Camera::SetPosition(camPos);
 		Camera::SetTarget(transform_.position_);
@@ -116,12 +114,20 @@ void Tank::Update()
 	}
 	case CAM_TYPE::TPS_TYPE:
 	{
-		Camera::SetPosition(XMFLOAT3(0, 20, -30));
-		Camera::SetTarget(XMFLOAT3(0, 0, 0));
+		Camera::SetTarget(transform_.position_);
+		XMVECTOR vEye{ 0,5,-10,0 };
+		vEye = XMVector3TransformCoord(vEye, rotY);
+		XMFLOAT3 camPos;
+		XMStoreFloat3(&camPos, pos + vEye);
+		Camera::SetPosition(camPos);
 		break;
 	}
 	case CAM_TYPE::FPS_TYPE:
 	{
+		Camera::SetPosition(transform_.position_);
+		XMFLOAT3 camTarget;
+		XMStoreFloat3(&camTarget, pos + dir * move);
+		Camera::SetTarget(camTarget);
 		break;
 	}
 	default:

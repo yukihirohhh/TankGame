@@ -24,10 +24,15 @@ void Enemy::Initialize()
 	transform_.position_.x = (float)(rand() % 30);
 	transform_.position_.z = (float)(rand() % 30);
 
-}
+	float x = (float)rand() / RAND_MAX;
+	x = 2.0 * x;
+	transform_.position_.x = 25.0 * (x - 1.0);
+	float z = (float)rand() / RAND_MAX;
+	z = 2.0 * z;
+	transform_.position_.z = 25.0 * (z - 1.0);
+	transform_.position_.y = 0;
 
-void Enemy::Update()
-{
+
 	Ground* pGround = (Ground*)FindObject("Ground");
 	int hGmodel = pGround->GetModelHandle();
 
@@ -41,6 +46,10 @@ void Enemy::Update()
 	{
 		transform_.position_.y = -data.dist + 0.5f;
 	}
+}
+
+void Enemy::Update()
+{
 }
 
 void Enemy::Draw()

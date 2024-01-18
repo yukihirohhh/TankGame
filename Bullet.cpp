@@ -15,7 +15,6 @@ void Bullet::Initialize()
 {
 	SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 1.2f);
 	AddCollider(collision);
-
 	hModel_ = Model::Load("Bullet.fbx");
 	assert(hModel_ >= 0);
 }
