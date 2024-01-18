@@ -9,6 +9,7 @@
 PlayScene::PlayScene(GameObject* parent)
 	:GameObject(parent, "PlayScene"), pText(nullptr), ENEMY_NUM(5)
 {
+
 }
 
 PlayScene::~PlayScene()
@@ -20,13 +21,6 @@ void PlayScene::Initialize()
 	Instantiate<Ground>(this);
 	Instantiate<Tank>(this);
 	//Instantiate<TankHead>(this);
-	for (int i = 0; i <= ENEMY_NUM; i++)
-	{
-		Instantiate<Enemy>(this);
-	}
-	
-	pText = new Text;
-	pText->Initialize();
 }
 
 void PlayScene::Update()
