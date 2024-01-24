@@ -2,6 +2,7 @@
 #include "Engine/Model.h"
 #include "Engine/SphereCollider.h"
 #include "Ground.h"
+#include "PlayScene.h"
 
 Enemy::Enemy(GameObject* parent)
 	:GameObject(parent, "Enemy"),hModel_(-1)
@@ -14,15 +15,12 @@ Enemy::~Enemy()
 
 void Enemy::Initialize()
 {
-	SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 1.2f);
+	SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.8f);
 	AddCollider(collision);
 
 	hModel_ = Model::Load("Enemy.fbx");
 	assert(hModel_ >= 0);
 	Model::SetAnimFrame(hModel_,0,60,2);
-
-	transform_.position_.x = (float)(rand() % 30);
-	transform_.position_.z = (float)(rand() % 30);
 
 	float x = (float)rand() / RAND_MAX;
 	x = 2.0 * x;
@@ -46,6 +44,7 @@ void Enemy::Initialize()
 	{
 		transform_.position_.y = -data.dist + 0.5f;
 	}
+
 }
 
 void Enemy::Update()
@@ -65,4 +64,5 @@ void Enemy::Release()
 void Enemy::OnCollision(GameObject* pTarget)
 {
 	KillMe();
+
 }

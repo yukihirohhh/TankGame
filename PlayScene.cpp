@@ -5,9 +5,11 @@
 #include "Enemy.h"
 #include "Engine/Text.h"
 #include "Engine/Camera.h"
+#include "Bullet.h"
+#include "HUD.h"
 
 PlayScene::PlayScene(GameObject* parent)
-	:GameObject(parent, "PlayScene"), pText(nullptr), ENEMY_NUM(5)
+	:GameObject(parent, "PlayScene"), pText(nullptr), ENEMY_NUM(30), enemyNum(0)
 {
 
 }
@@ -21,11 +23,17 @@ void PlayScene::Initialize()
 	Instantiate<Ground>(this);
 	Instantiate<Tank>(this);
 	//Instantiate<TankHead>(this);
-
-	for (int i = 0; i < 30; i++)
+	
+	//“G‚Ì‡Œv‚ðenemyNum‚É“ü‚êAfor‚Å‚Ü‚í‚·
+	enemyNum = ENEMY_NUM;
+	for (int i = 0; i < enemyNum; i++)
 	{
 		Instantiate<Enemy>(this);
 	}
+	pText = new Text;
+	pText->Initialize();
+
+	Instantiate<HUD>(this);
 }
 
 void PlayScene::Update()

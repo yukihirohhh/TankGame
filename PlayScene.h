@@ -10,6 +10,7 @@ class PlayScene :
 	Text* pText;
 	const int ENEMY_NUM;
 	Tank* player;
+	int enemyNum;
 public:
 	PlayScene(GameObject* parent);
 
@@ -27,5 +28,10 @@ public:
 
 	//開放
 	void Release() override;
+	//インライン定義
+	void DescEnemy() { enemyNum--; }
+	bool IsEnemyLeft() { return enemyNum > 0; }
+	//enemyの合計をとる
+	int GetEnemyNum() { return enemyNum; }
 };
 

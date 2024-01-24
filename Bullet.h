@@ -1,11 +1,14 @@
 #pragma once
 #include "Engine/GameObject.h"
+#include "PlayScene.h"
+
 class Bullet :
     public GameObject
 {
 	int hModel_;
 	float bulletSpeed_;//弾丸の速さ
 	XMFLOAT3 moveDir_; //向きのベクトル
+	PlayScene* playscene_;
 public:
 	//コンストラクタ
 	Bullet(GameObject* parent);

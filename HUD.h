@@ -1,16 +1,24 @@
 #pragma once
+#include <vector>
 #include "Engine/GameObject.h"
+using namespace std;
+using std::string;
 
-class Enemy :
+class HUD :
     public GameObject
 {
-	int hModel_;
+	string EnemyNumString();
 public:
 	//コンストラクタ
-	Enemy(GameObject* parent);
+	HUD(GameObject* parent);
 
-	//デストラクタ
-	~Enemy();
+	int hHUD_;
+	int hNumbers_;
+	//int hKinoko_;
+	Transform tHud_;
+	vector<Transform> tNumbers_;
+
+	~HUD();
 
 	//初期化
 	void Initialize() override;
@@ -23,7 +31,5 @@ public:
 
 	//開放
 	void Release() override;
-
-	void OnCollision(GameObject* pTarget) override;
 };
 
