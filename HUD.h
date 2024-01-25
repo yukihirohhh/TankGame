@@ -14,8 +14,10 @@ public:
 
 	int hHUD_;
 	int hNumbers_;
+	int hKeyHud_;
 	//int hKinoko_;
 	Transform tHud_;
+	Transform tKeyHud_;
 	vector<Transform> tNumbers_;
 
 	~HUD();

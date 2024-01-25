@@ -15,10 +15,10 @@ Enemy::~Enemy()
 
 void Enemy::Initialize()
 {
-	SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.8f);
+	SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.4f);
 	AddCollider(collision);
 
-	hModel_ = Model::Load("Enemy.fbx");
+	hModel_ = Model::Load("Mushroom.fbx");
 	assert(hModel_ >= 0);
 	Model::SetAnimFrame(hModel_,0,60,2);
 
@@ -63,6 +63,4 @@ void Enemy::Release()
 
 void Enemy::OnCollision(GameObject* pTarget)
 {
-	KillMe();
-
 }

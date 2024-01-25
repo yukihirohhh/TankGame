@@ -3,6 +3,7 @@
 class ClearScene :
     public GameObject
 {
+	int hPict_;
 public:
 	//コンストラクタ
 	ClearScene(GameObject* parent);

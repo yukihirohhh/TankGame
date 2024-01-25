@@ -27,14 +27,14 @@
     <Filter Include="SCENE">
       <UniqueIdentifier>{9d181bec-5175-4809-973d-db40c5d4a196}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SCENE\TITLE">
-      <UniqueIdentifier>{67e1d491-a9ee-478a-96be-1e9801e1de26}</UniqueIdentifier>
-    </Filter>
     <Filter Include="SCENE\PLAY">
       <UniqueIdentifier>{239e6322-6615-42f6-8e49-8fcf82e49803}</UniqueIdentifier>
     </Filter>
     <Filter Include="SCENE\CLEAR">
       <UniqueIdentifier>{dcf321e5-0939-4ce4-a25c-9e01f223df27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SCENE\TITLE">
+      <UniqueIdentifier>{67e1d491-a9ee-478a-96be-1e9801e1de26}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

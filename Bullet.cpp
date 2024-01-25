@@ -3,6 +3,7 @@
 #include "Engine/SphereCollider.h"
 #include "PlayScene.h"
 #include "Engine/Debug.h"
+#include "Engine/SceneManager.h"
 
 Bullet::Bullet(GameObject* parent)
 	:GameObject(parent, "Bullet"), hModel_(-1)
@@ -18,7 +19,7 @@ void Bullet::Initialize()
 	
 	hModel_ = Model::Load("Bullet.fbx");
 	assert(hModel_ >= 0);
-	SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.27f);
+	SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.1f);
 	AddCollider(collision);
 	playscene_ = (PlayScene*)GetParent();
 }
@@ -55,4 +56,12 @@ void Bullet::OnCollision(GameObject* pTarget)
 		Debug::Log(playscene_->GetObjectName());
 	}
 	this->KillMe();
+
+	if (playscene_->enemyNum <= 0)
+	{
+		SceneManager* pSceneManager
+			= (SceneManager*)FindObject("SceneManager");
+		pSceneManager->ChangeScene(SCENE_ID_CLEAR);
+	}
+
 }

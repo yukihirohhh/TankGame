@@ -10,8 +10,10 @@ class PlayScene :
 	Text* pText;
 	const int ENEMY_NUM;
 	Tank* player;
-	int enemyNum;
+
 public:
+	int enemyNum;
+
 	PlayScene(GameObject* parent);
 
 	//デストラクタ

@@ -2,6 +2,8 @@
 #include "Engine/GameObject.h"
 #include "PlayScene.h"
 
+class PlayScene;
+
 class Bullet :
     public GameObject
 {
