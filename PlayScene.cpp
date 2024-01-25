@@ -11,7 +11,7 @@
 
 
 PlayScene::PlayScene(GameObject* parent)
-	:GameObject(parent, "PlayScene"), pText(nullptr), ENEMY_NUM(1), enemyNum(0)
+	:GameObject(parent, "PlayScene"), pText(nullptr), ENEMY_NUM(30), enemyNum(0)
 {
 
 }

@@ -29,6 +29,7 @@ void Enemy::Initialize()
 	z = 2.0 * z;
 	transform_.position_.z = 25.0 * (z - 1.0);
 	transform_.position_.y = 0;
+	transform_.rotate_.y = 180;
 
 
 	Ground* pGround = (Ground*)FindObject("Ground");
