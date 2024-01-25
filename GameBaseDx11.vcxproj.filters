@@ -33,6 +33,9 @@
     <Filter Include="SCENE\PLAY">
       <UniqueIdentifier>{239e6322-6615-42f6-8e49-8fcf82e49803}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SCENE\CLEAR">
+      <UniqueIdentifier>{dcf321e5-0939-4ce4-a25c-9e01f223df27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\BoxCollider.cpp">
@@ -125,7 +128,12 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>SCENE\PLAY</Filter>
     </ClCompile>
-    <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="HUD.cpp">
+      <Filter>SCENE\PLAY</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearScene.cpp">
+      <Filter>SCENE\CLEAR</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -218,7 +226,12 @@
     <ClInclude Include="Enemy.h">
       <Filter>SCENE\PLAY</Filter>
     </ClInclude>
-    <ClInclude Include="HUD.h" />
+    <ClInclude Include="HUD.h">
+      <Filter>SCENE\PLAY</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearScene.h">
+      <Filter>SCENE\CLEAR</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\Simple2D.hlsl">
